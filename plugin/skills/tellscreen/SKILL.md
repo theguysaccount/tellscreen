@@ -1,5 +1,5 @@
 ---
-name: record
+name: tellscreen
 description: Turn a video into something you can act on, and let the user show you their screen. Use when the user gives you a video file or video link you can't watch (a screen recording .mov/.mp4/.webm, a Loom or QuickTime download, a bug repro, a design or product review), when they want to show you something instead of typing it ("let me show you", "record my screen", "watch this"), or when they paste a tellscreen.com/v/ link. Tellscreen returns a numbered change list with the words said, where on screen, and a screenshot of each moment.
 ---
 
