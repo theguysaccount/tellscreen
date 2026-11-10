@@ -30,7 +30,7 @@ Tell the user in one line that you're sending the video to Tellscreen to read it
 
 ## Public YouTube links
 
-The agent downloads one public video, checks that it has a playable video stream, then uses the private file upload above. The hosted converter still expects a file or direct media URL.
+Resolve the public watch page to one recording. Download the source when available, or pass a direct progressive media URL to the hosted converter.
 
 1. Parse the supplied HTTPS URL. Accept `youtube.com`, `www.youtube.com` or `m.youtube.com` with `/watch?v=VIDEO_ID`, `/shorts/VIDEO_ID` or `/live/VIDEO_ID`, and `youtu.be/VIDEO_ID`. Validate that the ID is exactly 11 characters from `A–Z`, `a–z`, `0–9`, `_` and `-`. Use the canonical watch URL so playlist, timestamp and tracking parameters do not affect the download.
 2. Check that `yt-dlp`, `ffmpeg` and `ffprobe` are available. Use the following shell commands with the validated ID:
@@ -45,12 +45,12 @@ The agent downloads one public video, checks that it has a playable video stream
      ffprobe -v error -show_entries format=duration -of default=nw=1:nk=1 "$import_dir/source.mp4"
    ```
 
-3. Check the duration against the source before continuing. If access fails, dependencies are unavailable, or the downloaded file has no playable video stream, report that result and request a playable MP4 or Tellscreen Copy for AI link. Do not use browser cookies or retry a sign-in or verification barrier.
-4. Tell the user which video you're sending to Tellscreen, then upload `"$import_dir/source.mp4"` with the file command above and collect the result. If the upload is too long for the current plan, keep the full local file available for slide extraction and report the plan limit. Do not silently trim the source or start a paid upgrade.
+3. Compare the probed duration with the source duration. If the media bytes fail to download but yt-dlp can resolve a public progressive MP4, select a single HTTPS format with both audio and video from its JSON metadata. Verify the direct URL is on a `googlevideo.com` subdomain, then pass it immediately in the `url` field of the private conversion request above. Keep the temporary media URL out of logs and chat. Stop at a sign-in or verification barrier. If neither route works, request a playable file or Tellscreen Copy for AI link.
+4. Tell the user which video you are sending to Tellscreen before making the import request. For the verified local file, use the file upload command above. Poll the conversion to readiness and compare the output and transcript duration with the original. Report any plan truncation. Keep any full local source available for slide extraction.
 
 ### When the user asks for every slide
 
-Use the full verified recording for a separate visual pass. The Tellscreen change list selects moments from speech and can miss slides. Crop to the presentation area when the speaker shares the frame, detect changes in that area with FFmpeg, and keep a stable image with its source timestamp for each distinct slide. Review the intervals between candidates for subtle changes or brief slides. If the available recording has gaps, say which portions are missing and report the number of verified slides rather than claiming complete coverage.
+Use the full verified recording for a separate visual pass. The Tellscreen change list selects moments from speech and can miss slides. Crop to the presentation area when the speaker shares the frame, detect changes in that area with FFmpeg, and keep a stable image with its source timestamp for each distinct slide. Review the intervals between candidates for subtle changes or brief slides. If the export is clipped, inspect `agent.json` for the recording duration and use its documented frame URL template at later times. Verify a frame near the end. Report the sampling interval and any gaps in coverage.
 
 ## When the user pastes a tellscreen.com link
 
