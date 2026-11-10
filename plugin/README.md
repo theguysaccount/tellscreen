@@ -13,8 +13,9 @@ run one command with your approval:
     curl -fsS -T "your-video.mov" "https://tellscreen.com/api/v1/convert?wait=110"
 
 That uploads the video you chose to tellscreen.com as a private video and prints the change list.
-Nothing else is read or sent. When you say "let me show you", it can instead open a Tellscreen
-recording page for you to record your screen. Privacy policy: https://tellscreen.com/privacy
+For a public YouTube link, the skill uses local yt-dlp and FFmpeg to fetch and verify the selected
+video before uploading it with that same command. When you say "let me show you", it can instead
+open a Tellscreen recording page for you to record your screen. Privacy policy: https://tellscreen.com/privacy
 
 ## Also
 
