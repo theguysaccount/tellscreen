@@ -1,0 +1,17 @@
+{
+  "name": "tellscreen",
+  "owner": {
+    "name": "Tellscreen",
+    "url": "https://tellscreen.com"
+  },
+  "description": "Show your AI what to fix: record your screen, or hand over a video, and get a change list back as your prompt.",
+  "plugins": [
+    {
+      "name": "tellscreen",
+      "source": "./plugin",
+      "description": "A Record screen button above the prompt, and video files Claude can finally read: talk through what should change, or hand over a recording, and the change list, with a screenshot of each moment, comes back as your prompt.",
+      "version": "0.3.0",
+      "homepage": "https://tellscreen.com/ai"
+    }
+  ]
+}

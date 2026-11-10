@@ -1,0 +1,10 @@
+{
+  "name": "tellscreen",
+  "version": "0.3.0",
+  "mcpServers": {
+    "tellscreen": {
+      "httpUrl": "https://tellscreen.com/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

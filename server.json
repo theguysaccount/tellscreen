@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.tellscreen/tellscreen",
+  "title": "Tellscreen",
+  "description": "Turn screen recordings and video links into change lists with screenshots an AI can act on.",
+  "version": "1.0.0",
+  "websiteUrl": "https://tellscreen.com",
+  "icons": [
+    {
+      "src": "https://tellscreen.com/img/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://tellscreen.com/mcp"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "tellscreen",
+  "version": "0.3.0",
+  "description": "A Record screen button above the prompt, and video files Claude can finally read: talk through what should change, or hand over a recording, and the change list, with a screenshot of each moment, comes back as your prompt.",
+  "types": "./types/index.d.ts",
+  "homepage": "https://tellscreen.com/ai",
+  "author": {
+    "name": "Tellscreen",
+    "url": "https://tellscreen.com"
+  }
+}
